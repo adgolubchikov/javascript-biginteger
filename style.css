@@ -1,0 +1,29 @@
+#actions {
+margin: auto;
+
+}
+
+body {
+text-align: center;
+}
+
+#content {
+width: 80%;
+margin-right: 10%;
+margin-left: 10%;
+
+}
+
+.select {
+margin: 10px;
+
+}
+
+#result {
+word-wrap: break-word;
+
+}
+
+#introduction {
+text-align: left;
+}

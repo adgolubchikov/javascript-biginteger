@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+<title>Big Integer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<link rel="stylesheet" href="rainbow/github.css">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="rainbow/rainbow-custom.min.js"></script>
+<script type="text/javascript" src="bi.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<div id="content">
+	<div id="introduction">
+	<h5>Operations with big integers</h5>
+	All operations are made with strings, you do not need do create any objects. <br />
+	Where argument type is <b>String</b>, it also works with <b>Number</b><br />
+	There 14 functions:<br />
+	add(<b>String</b> a, <b>String</b> b): returns <b>String</b> a+b, you can also call <b>String</b>.add(b) and it will return a+b without changing the original <b>String</b><br />
+	sub(<b>String</b> a, <b>String</b> b): returns <b>String</b> a-b, or <b>String</b>.sub(b), as above<br />
+	mul(<b>String</b> a, <b>String</b> b): returns <b>String</b> a*b, or <b>String</b>.mul(b), as above<br />
+	div(<b>String</b> a, <b>String</b> b): returns <b>String</b> Euclidean division, or <b>String</b>.div(b), as above<br />
+	mod(<b>String</b> a, <b>String</b> b): returns <b>String</b> Euclidean division remainder, or <b>String</b>.mod(b), as above<br />
+	pow(<b>String</b> a, <b>Number</b> b): returns <b>String</b> a^b, or <b>String</b>.pow(b), as above<br />
+	sign(<b>String</b> n): returns <b>Number</b> (1, 0 ot -1), or <b>String</b>.sign(), as above<br />
+	abs(<b>String</b> n): returns <b>String</b> abs(n), or <b>String</b>.abs(), as above<br />
+	min(<b>String</b> a, <b>String</b> b): returns <b>String</b> which is less than another<br />
+	max(<b>String</b> a, <b>String</b> b): returns <b>String</b> which is bigger than another<br />
+	isbigger(<b>String</b> a, <b>String</b> b): returns <b>Boolean</b> is a&gt;=b or not<br />
+	sqr(<b>String</b> n): returns <b>String</b> a^2, or <b>String</b>.sqr(), as above<br />
+	fibo(<b>Number</b> n): returns <b>String</b> n-th Fibonacci number<br />
+	fact(<b>Number</b> n): returns <b>String</b> factorial of n<br />
+	<hr />
+	<h6>Usage examples</h6>
+	<pre><code data-language="javascript">
+	add(25, 30); //returns '55'
+	sub('36', 11); //returns '25'
+	"45".add(7); //returns '52'
+	let n = '16';
+	n.pow(3).add('10'); //returns '4106', 16^3 + 10
+	</code></pre>
+	
+	</div>
+	<hr />
+	<form id="actions" name="select" onsubmit="return false;">
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="add">
+            <input type="radio" id="add" class="mdl-radio__button" name="options" value="1" checked>
+            <span class="mdl-radio__label">Addition</span>
+        </label>
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="sub">
+            <input type="radio" id="sub" class="mdl-radio__button" name="options" value="2">
+            <span class="mdl-radio__label">Subtraction</span>
+        </label>
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="mul">
+            <input type="radio" id="mul" class="mdl-radio__button" name="options" value="3">
+            <span class="mdl-radio__label">Multiplication</span>
+        </label>
+        <br />
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="div">
+            <input type="radio" id="div" class="mdl-radio__button" name="options" value="4">
+            <span class="mdl-radio__label">Euclidean division (div)</span>
+        </label>
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="mod">
+            <input type="radio" id="mod" class="mdl-radio__button" name="options" value="5">
+            <span class="mdl-radio__label">Euclidean division remainder (mod)</span>
+        </label>
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pow">
+            <input type="radio" id="pow" class="mdl-radio__button" name="options" value="6">
+            <span class="mdl-radio__label">Power</span>
+        </label>
+        <br />
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="fibo">
+            <input type="radio" id="fibo" class="mdl-radio__button" name="options" value="7">
+            <span class="mdl-radio__label">N-th Fibonacci number</span>
+        </label>
+	    <label class="select mdl-radio mdl-js-radio mdl-js-ripple-effect" for="fact">
+            <input type="radio" id="fact" class="mdl-radio__button" name="options" value="8">
+            <span class="mdl-radio__label">Factorial</span>
+        </label>
+    </form>
+    
+    <br />
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*" id="a">
+        <label class="mdl-textfield__label" for="a">First number</label>
+        <span class="mdl-textfield__error">Input is not an integer!</span>
+    </div>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*" id="b">
+        <label class="mdl-textfield__label" for="b">Second number</label>
+        <span class="mdl-textfield__error">Input is not an integer!</span>
+    </div>
+    <br />
+    <button onclick="calculate()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    Calculate
+    </button>
+    <br /><br />
+    <div id="performance"></div>
+    <div id="result"></div>
+</div>
+</body>
+</html>
